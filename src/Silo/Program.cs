@@ -45,7 +45,8 @@ namespace Silo
                     options.ServiceId = "OrleansBasics";
                 })
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
-                .ConfigureLogging(logging => logging.AddConsole());
+                .ConfigureLogging(logging => logging.AddConsole())
+                .UseDashboard();
 
             var host = builder.Build();
             await host.StartAsync();
