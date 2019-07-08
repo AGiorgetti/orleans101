@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Orleans;
 using Orleans.Configuration;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Client
@@ -48,9 +49,16 @@ namespace Client
                 .ConfigureLogging(logging => logging.AddConsole())
                 .Build();
 
-            await client.Connect().ConfigureAwait(false);
+            await client.Connect(ConnectionRetryFilter).ConfigureAwait(false);
             Console.WriteLine("Client successfully connected to silo host \n");
             return client;
+        }
+
+        private static Task<bool> ConnectionRetryFilter(Exception arg)
+        {
+            // infinite attempts, just wait for the server to come up.
+            Thread.Sleep(1000);
+            return Task.FromResult(true);
         }
 
         private static async Task DoClientWork(IClusterClient client)
