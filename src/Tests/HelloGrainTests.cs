@@ -45,7 +45,7 @@ namespace Tests
         public async Task SayHelloWorks()
         {
             var hello = Cluster.GrainFactory.GetGrain<IHello>("TestGrain_1");
-            var greeting = await hello.SayHello("Test");
+            var greeting = await hello.SayHello("Test").ConfigureAwait(false);
 
             Assert.AreEqual("\n Client said: 'Test', so HelloGrain says: Hello!", greeting);
         }

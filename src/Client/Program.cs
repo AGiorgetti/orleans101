@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    public class Program
+    public static class Program
     {
-        static int Main(string[] args)
+        private static int Main(string[] args)
         {
             return RunMainAsync().Result;
         }
@@ -18,9 +18,9 @@ namespace Client
         {
             try
             {
-                using (var client = await ConnectClient())
+                using (var client = await ConnectClient().ConfigureAwait(false))
                 {
-                    await DoClientWork(client);
+                    await DoClientWork(client).ConfigureAwait(false);
                     Console.ReadKey();
                 }
 
@@ -38,8 +38,7 @@ namespace Client
 
         private static async Task<IClusterClient> ConnectClient()
         {
-            IClusterClient client;
-            client = new ClientBuilder()
+            IClusterClient client = new ClientBuilder()
                 .UseLocalhostClustering()
                 .Configure<ClusterOptions>(options =>
                 {
@@ -49,7 +48,7 @@ namespace Client
                 .ConfigureLogging(logging => logging.AddConsole())
                 .Build();
 
-            await client.Connect();
+            await client.Connect().ConfigureAwait(false);
             Console.WriteLine("Client successfully connected to silo host \n");
             return client;
         }
@@ -58,7 +57,7 @@ namespace Client
         {
             // example of calling grains from the initialized client
             var friend = client.GetGrain<IHello>("Hello1");
-            var response = await friend.SayHello("Good morning, HelloGrain!");
+            var response = await friend.SayHello("Good morning, HelloGrain!").ConfigureAwait(false);
             Console.WriteLine("\n\n{0}\n\n", response);
         }
     }

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Silo
 {
-    public class Program
+    public static class Program
     {
         public static int Main(string[] args)
         {
@@ -19,11 +19,11 @@ namespace Silo
         {
             try
             {
-                var host = await StartSilo();
+                var host = await StartSilo().ConfigureAwait(false);
                 Console.WriteLine("\n\n Press Enter to terminate...\n\n");
                 Console.ReadLine();
 
-                await host.StopAsync();
+                await host.StopAsync().ConfigureAwait(false);
 
                 return 0;
             }
@@ -49,7 +49,7 @@ namespace Silo
                 .UseDashboard();
 
             var host = builder.Build();
-            await host.StartAsync();
+            await host.StartAsync().ConfigureAwait(false);
             return host;
         }
     }
