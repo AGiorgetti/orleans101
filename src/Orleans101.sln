@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silo", "Silo\Silo.csproj", "{59A5C744-0802-4EE5-832A-642AE8E2BBD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Silo", "Silo\Silo.csproj", "{59A5C744-0802-4EE5-832A-642AE8E2BBD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{50B53545-09A2-4698-8778-B70E0DC7A3C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{50B53545-09A2-4698-8778-B70E0DC7A3C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterfaces", "GrainInterfaces\GrainInterfaces.csproj", "{F2FBB1A9-027D-4256-AAE5-3BD12CB9BB2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrainInterfaces", "GrainInterfaces\GrainInterfaces.csproj", "{F2FBB1A9-027D-4256-AAE5-3BD12CB9BB2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grains", "Grains\Grains.csproj", "{F2C8CAA5-3B90-4E2B-86D9-BD041B0775B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grains", "Grains\Grains.csproj", "{F2C8CAA5-3B90-4E2B-86D9-BD041B0775B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{B1738652-5BC2-4987-8791-4D7ABB0AFDE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{B1738652-5BC2-4987-8791-4D7ABB0AFDE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0E8E0742-F948-450A-A2F7-23257A8622AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B1738652-5BC2-4987-8791-4D7ABB0AFDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1738652-5BC2-4987-8791-4D7ABB0AFDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1738652-5BC2-4987-8791-4D7ABB0AFDE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E8E0742-F948-450A-A2F7-23257A8622AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8E0742-F948-450A-A2F7-23257A8622AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8E0742-F948-450A-A2F7-23257A8622AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8E0742-F948-450A-A2F7-23257A8622AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
