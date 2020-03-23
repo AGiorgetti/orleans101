@@ -11,11 +11,11 @@ namespace Tests
     {
         public TestCluster Cluster { get; private set; }
 
-        public class TestSiloConfigurations : ISiloBuilderConfigurator
+        public class TestSiloConfigurations : ISiloConfigurator
         {
-            public void Configure(ISiloHostBuilder hostBuilder)
+            public void Configure(ISiloBuilder siloBuilder)
             {
-                hostBuilder.ConfigureServices(services => {
+                siloBuilder.ConfigureServices(services => {
                     // configure the inversion of control here!
                 });
             }
